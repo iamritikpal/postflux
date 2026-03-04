@@ -211,3 +211,19 @@
     border-radius: 75%;
   }
 }
+
+.starting-hero-section {
+  background-color: white;
+  padding-top: 6%;
+}
+
+.hero-scroll-demo {
+  padding-top: 0;
+  margin-top: -10%;
+}
+
+@media (max-width: 768px) {
+  .starting-hero-section>div>div {
+    min-height: 700px;
+  }
+}

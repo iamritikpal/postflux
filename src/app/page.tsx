@@ -1,4 +1,4 @@
-import Hero from "@/components/Hero";
+import { CTASection as Hero } from "@/components/ui/hero-dithering-card";
 import { HeroScrollDemo } from "@/components/HeroScrollDemo";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -39,6 +40,18 @@ export function NavBar({ items, className }: NavBarProps) {
             )}
         >
             <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg pointer-events-auto">
+                {/* Brand Logo & Name */}
+                <Link href="/" className="flex items-center gap-2 pl-3 pr-2 py-2">
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden shrink-0 bg-background flex items-center justify-center">
+                        <Image src="/logo.png" alt="PostFlux Logo" width={32} height={32} className="object-cover" />
+                    </div>
+                    <span className="text-xl font-bold tracking-tight text-foreground hidden md:inline-block">
+                        Post<span className="text-indigo-500">Flux</span>
+                    </span>
+                </Link>
+
+                <div className="w-px h-6 bg-border mx-1 hidden md:block" />
+
                 {items.map((item) => {
                     const Icon = item.icon
                     const isActive = activeTab === item.name
@@ -79,6 +92,15 @@ export function NavBar({ items, className }: NavBarProps) {
                         </Link>
                     )
                 })}
+
+                <div className="w-px h-6 bg-border mx-1 hidden sm:block" />
+
+                <Link
+                    href="/login"
+                    className="hidden sm:inline-flex items-center justify-center h-9 px-4 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                >
+                    Login
+                </Link>
             </div>
         </div>
     )

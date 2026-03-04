@@ -70,7 +70,7 @@ export default function Features() {
     return (
         <section id="features" className="relative">
             {/* Section header overlaid on the dark background */}
-            <div className="absolute top-0 left-0 right-0 z-10 pt-16 pb-8 text-center pointer-events-none">
+            <div className="absolute top-0 left-0 right-0 z-10 pt-16 pb-8 text-center pointer-events-none features-section-css">
                 <span className="inline-block text-xs font-semibold text-primary-300 tracking-widest uppercase mb-4">
                     Features
                 </span>
