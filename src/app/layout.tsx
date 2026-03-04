@@ -14,6 +14,8 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+import LoadingScreen from "@/components/LoadingScreen";
+
 export const metadata: Metadata = {
   title: "PostFlux – AI Voice → LinkedIn Authority Engine",
   description:
@@ -61,7 +63,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}
       >
-        {children}
+        <LoadingScreen>
+          {children}
+        </LoadingScreen>
       </body>
     </html>
   );
