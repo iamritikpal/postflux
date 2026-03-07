@@ -1,0 +1,600 @@
+/* ── Hero Section ── */
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* ── Background glows ── */
+.glowWrap {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.glowTop {
+    position: absolute;
+    top: 33%;
+    left: 25%;
+    width: 600px;
+    height: 600px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    filter: blur(120px);
+}
+
+.glowBottom {
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    width: 400px;
+    height: 400px;
+    background: rgba(139, 92, 246, 0.08);
+    border-radius: 50%;
+    filter: blur(100px);
+}
+
+/* ── Dot grid overlay ── */
+.dotGrid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+/* ── Main content container ── */
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+/* ── Two-column grid ── */
+.grid {
+    display: grid;
+    gap: 3rem;
+    align-items:center;
+    min-height: 100vh;
+
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: 45% 55%;
+        gap: 2rem;
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+}
+
+/* ── LEFT COLUMN ── */
+.leftCol {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+
+}
+
+/* Social proof row */
+.socialProofRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+}
+
+.socialProofPill {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    padding: 0.375rem 0.875rem;
+}
+
+.avatarStack {
+    display: flex;
+}
+
+.avatarStack > div {
+    margin-left: -0.375rem;
+}
+
+.avatarStack > div:first-child {
+    margin-left: 0;
+}
+
+.socialProofText {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    margin-left: 0.25rem;
+}
+
+.ratingPill {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    padding: 0.375rem 0.875rem;
+}
+
+.ratingText {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+}
+
+/* Headline */
+.headline {
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.headlineAccent {
+    color: #0a66c2;
+}
+
+.headlinePlus {
+    color: rgba(255, 255, 255, 0.3);
+    vertical-align: super;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-left: 0.25rem;
+}
+
+/* Divider */
+.divider {
+    width: 4rem;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+}
+
+/* Sub-headline */
+.subHeadline {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    line-height: 1.375;
+    margin-bottom: 1rem;
+    max-width: 32rem;
+}
+
+@media (min-width: 768px) {
+    .subHeadline {
+        font-size: 1.5rem;
+    }
+}
+
+/* Description */
+.description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.625;
+    max-width: 28rem;
+    margin-bottom: 2.5rem;
+}
+
+/* CTA buttons */
+.ctaRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.ctaPrimary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    background: #fff;
+    color: #000;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1);
+}
+
+.ctaPrimary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.ctaSecondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.ctaSecondary:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Trust strip */
+.trustStrip {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    flex-wrap: wrap;
+}
+
+.trustDot {
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 50%;
+    background: #34d399;
+    display: inline-block;
+    margin-right: 0.375rem;
+}
+
+.trustDivider {
+    width: 1px;
+    height: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── RIGHT COLUMN ── */
+.rightCol {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    min-height: 360px;
+}
+
+@media (min-width: 1024px) {
+    .rightCol {
+        justify-content: flex-end;
+        min-height: 520px;
+    }
+}
+
+/* Glow behind banner */
+.bannerGlow {
+    position: absolute;
+    inset: 0;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    filter: blur(64px);
+    transform: scale(0.75);
+}
+
+/* Floating stat cards */
+.statCard {
+    position: absolute;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.statCardTop {
+    top: -1rem;
+    left: 0;
+}
+
+@media (min-width: 1024px) {
+    .statCardTop {
+        left: -1.5rem;
+    }
+}
+
+.statCardBottom {
+    bottom: -1rem;
+    right: 0;
+}
+
+@media (min-width: 1024px) {
+    .statCardBottom {
+        right: -1rem;
+    }
+}
+
+.statLabel {
+    font-size: 0.625rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.125rem;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.statSubUp {
+    font-size: 0.6875rem;
+    color: #34d399;
+    font-weight: 500;
+    margin-top: 0.125rem;
+}
+
+.statSubDown {
+    font-size: 0.6875rem;
+    color: #818cf8;
+    font-weight: 500;
+    margin-top: 0.125rem;
+}
+
+/* Banner image wrapper */
+.bannerWrap {
+    position: relative;
+    width: 140%;
+}
+
+@media (min-width: 1024px) {
+    .bannerWrap {
+        width: 155%;
+    }
+}
+
+.bannerImg {
+    width: 120%;
+    max-width: none;
+    height: auto;
+    filter: drop-shadow(0 24px 48px rgba(99, 102, 241, 0.25));
+}
+
+/* ── Responsive layout tuning for all screens ── */
+@media (max-width: 1279px) {
+    .container {
+        max-width: 1180px;
+    }
+
+    .grid {
+        gap: 2.25rem;
+    }
+
+    .rightCol {
+        min-height: 460px;
+    }
+
+    .bannerWrap {
+        width: 132%;
+    }
+
+    .bannerImg {
+        width: 112%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .container {
+        max-width: 960px;
+        padding-top: 7rem;
+        padding-bottom: 5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        min-height: auto;
+    }
+
+    .leftCol {
+        text-align: center;
+        align-items: center;
+    }
+
+    .description {
+        max-width: 38rem;
+    }
+
+    .ctaRow,
+    .trustStrip {
+        justify-content: center;
+    }
+
+    .rightCol {
+        width: 100%;
+        min-height: 460px;
+        justify-content: center;
+    }
+
+    .bannerWrap {
+        width: min(92vw, 760px);
+    }
+
+    .bannerImg {
+        width: 100%;
+    }
+
+    .statCardTop {
+        top: -0.75rem;
+        left: 3%;
+    }
+
+    .statCardBottom {
+        right: 4%;
+        bottom: -0.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding-top: 6.5rem;
+        padding-bottom: 4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .grid {
+        gap: 1.75rem;
+    }
+
+    .socialProofRow {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .headline {
+        font-size: clamp(2.3rem, 12vw, 3.4rem);
+    }
+
+    .headlinePlus {
+        font-size: 1.35rem;
+    }
+
+    .subHeadline {
+        font-size: 1.05rem;
+        max-width: 24rem;
+    }
+
+    .description {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        max-width: 24rem;
+        margin-bottom: 2rem;
+    }
+
+    .ctaRow {
+        margin-bottom: 1.75rem;
+    }
+
+    .ctaPrimary,
+    .ctaSecondary {
+        font-size: 0.82rem;
+    }
+
+    .trustStrip {
+        gap: 0.5rem;
+    }
+
+    .trustDivider {
+        display: none;
+    }
+
+    .rightCol {
+        min-height: 360px;
+    }
+
+    .bannerWrap {
+        width: min(96vw, 560px);
+    }
+
+    .statCard {
+        padding: 0.55rem 0.75rem;
+        border-radius: 0.85rem;
+    }
+
+    .statCardTop {
+        left: 2%;
+        top: -0.5rem;
+    }
+
+    .statCardBottom {
+        right: 2%;
+        bottom: -0.4rem;
+    }
+
+    .statValue {
+        font-size: 1.15rem;
+    }
+
+    .statLabel,
+    .statSubUp,
+    .statSubDown {
+        font-size: 0.58rem;
+    }
+}
+
+@media (max-width: 479px) {
+    .container {
+        padding-top: 6rem;
+        padding-bottom: 3.25rem;
+    }
+
+    .headline {
+        font-size: clamp(2rem, 11vw, 2.7rem);
+    }
+
+    .subHeadline {
+        font-size: 1rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        max-width: 21rem;
+    }
+
+    .ctaPrimary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ctaSecondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .rightCol {
+        min-height: 320px;
+    }
+
+    .bannerWrap {
+        width: 102%;
+    }
+
+    .bannerImg {
+        width: 100%;
+    }
+
+    .statCardTop,
+    .statCardBottom {
+        transform: scale(0.92);
+        transform-origin: center;
+    }
+}

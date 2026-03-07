@@ -1,71 +1,183 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
-import { useState, Suspense, lazy } from "react"
-
-const Dithering = lazy(() =>
-    import("@paper-design/shaders-react").then((mod) => ({
-        default: mod.Dithering as React.ComponentType<any>,
-    }))
-)
+import Image from "next/image"
+import { ArrowRight, Star, Users } from "lucide-react"
+import { motion } from "framer-motion"
+import s from "./hero-dithering-card.module.css"
 
 export function CTASection() {
-    const [isHovered, setIsHovered] = useState(false)
-
     return (
-        <section className="starting-hero-section py-16 w-full flex justify-center items-center px-4 md:px-6 bg-black">
-            <div
-                className="w-full max-w-7xl relative"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-            >
-                <div className="relative overflow-hidden rounded-[48px] border border-white/10 bg-neutral-950 shadow-xl min-h-[650px] flex flex-col items-center justify-center duration-500">
+        <section className={s.section}>
 
-                    {/* Shader Background */}
-                    <Suspense fallback={<div className="absolute inset-0 bg-black/30" />}>
-                        <div className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen">
-                            <Dithering
-                                colorBack="#00000000"
-                                colorFront="#6366F1"
-                                shape="warp"
-                                type="4x4"
-                                speed={isHovered ? 0.6 : 0.2}
-                                className="size-full"
-                                minPixelRatio={1}
-                            />
-                        </div>
-                    </Suspense>
+            {/* Background glows */}
+            <div className={s.glowWrap}>
+                <div className={s.glowTop} />
+                <div className={s.glowBottom} />
+            </div>
 
-                    <div className="relative z-10 px-6 max-w-4xl mx-auto text-center flex flex-col items-center">
+            {/* Dot grid */}
+            <div className={s.dotGrid} />
 
-                        {/* Badge */}
-                        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-sm font-medium text-indigo-400 backdrop-blur-sm">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-400"></span>
-                            </span>
-                            AI-Powered LinkedIn Posts
-                        </div>
+            <div className={s.container}>
+                <div className={s.grid}>
+
+                    {/* ── LEFT COLUMN ── */}
+                    <div className={s.leftCol}>
+
+                        {/* Social proof */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className={s.socialProofRow}
+                        >
+                            <div className={s.socialProofPill}>
+                                <div className={s.avatarStack}>
+                                    {["#818cf8", "#a78bfa", "#38bdf8"].map((color, i) => (
+                                        <div
+                                            key={i}
+                                            style={{
+                                                width: 20,
+                                                height: 20,
+                                                borderRadius: "50%",
+                                                background: color,
+                                                border: "2px solid #000",
+                                                marginLeft: i === 0 ? 0 : -6,
+                                            }}
+                                        />
+                                    ))}
+                                </div>
+                                <Users size={14} style={{ color: "rgba(255,255,255,0.5)", marginLeft: 4 }} />
+                                <span className={s.socialProofText}>1,000+ creators</span>
+                            </div>
+                            <div className={s.ratingPill}>
+                                <Star size={14} style={{ color: "#fbbf24", fill: "#fbbf24" }} />
+                                <span className={s.ratingText}>4.9</span>
+                            </div>
+                        </motion.div>
 
                         {/* Headline */}
-                        <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white mb-8 leading-[1.05]">
-                            Your Story, <br />
-                            <span className="text-white/70">Delivered Perfectly.</span>
-                        </h2>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className={s.headline}
+                        >
+                            Post<span className={s.headlineAccent}>Flux</span>
+                            <span className={s.headlinePlus}>+</span>
+                        </motion.h1>
+
+                        {/* Divider */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.15 }}
+                            className={s.divider}
+                        />
+
+                        {/* Sub-headline */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className={s.subHeadline}
+                        >
+                            Turn Your Voice Into LinkedIn Authority — Up To 10× Faster.
+                        </motion.p>
 
                         {/* Description */}
-                        <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
-                            Join founders using PostFlux to craft powerful LinkedIn posts that
-                            sound authentic, engaging, and uniquely theirs.
-                        </p>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.28 }}
+                            className={s.description}
+                        >
+                            Speak your ideas. PostFlux&apos;s AI writes polished LinkedIn posts that match
+                            your unique voice and style — so you can grow your brand without the
+                            blank-page struggle.
+                        </motion.p>
 
-                        {/* Button */}
-                        <button className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-indigo-500 px-12 text-base font-medium text-white transition-all duration-300 hover:bg-indigo-400 hover:scale-105 active:scale-95 hover:ring-4 hover:ring-indigo-500/30">
-                            <span className="relative z-10">Get Started</span>
-                            <ArrowRight className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
-                        </button>
+                        {/* CTAs */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.34 }}
+                            className={s.ctaRow}
+                        >
+                            <a href="https://app.postflux.tech/signup" className={s.ctaPrimary}>
+                                Get Started — It&apos;s Free
+                                <ArrowRight size={16} />
+                            </a>
+                            <a href="#pricing" className={s.ctaSecondary}>
+                                See Pricing
+                                <ArrowRight size={14} />
+                            </a>
+                        </motion.div>
 
+                        {/* Trust strip */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.44 }}
+                            className={s.trustStrip}
+                        >
+                            <span>
+                                <span className={s.trustDot} />
+                                No credit card required
+                            </span>
+                            <span className={s.trustDivider} />
+                            <span>4 free generations on signup</span>
+                            <span className={s.trustDivider} />
+                            <span>Cancel anytime</span>
+                        </motion.div>
                     </div>
+
+                    {/* ── RIGHT COLUMN ── */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                        className={s.rightCol}
+                    >
+                        <div className={s.bannerGlow} />
+
+                        {/* Floating stat — top */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.55 }}
+                            className={`${s.statCard} ${s.statCardTop}`}
+                        >
+                            <p className={s.statLabel}>Posts generated</p>
+                            <p className={s.statValue}>10K+</p>
+                            <p className={s.statSubUp}>↑ this month</p>
+                        </motion.div>
+
+                        {/* Floating stat — bottom */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.65 }}
+                            className={`${s.statCard} ${s.statCardBottom}`}
+                        >
+                            <p className={s.statLabel}>Avg. time saved</p>
+                            <p className={s.statValue}>2 hrs</p>
+                            <p className={s.statSubDown}>per post</p>
+                        </motion.div>
+
+                        {/* Banner */}
+                        <div className={s.bannerWrap}>
+                            <Image
+                                src="/banner.svg"
+                                alt="PostFlux – voice to LinkedIn content illustration"
+                                width={960}
+                                height={960}
+                                className={s.bannerImg}
+                                priority
+                            />
+                        </div>
+                    </motion.div>
+
                 </div>
             </div>
         </section>

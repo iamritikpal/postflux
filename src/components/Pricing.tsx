@@ -16,7 +16,6 @@ const plans = [
             "Email support",
         ],
         popular: false,
-        gradient: "from-gray-600 to-gray-800",
     },
     {
         name: "Pro",
@@ -33,7 +32,6 @@ const plans = [
             "Content calendar",
         ],
         popular: true,
-        gradient: "from-primary-500 to-purple-600",
     },
     {
         name: "Ultra",
@@ -51,7 +49,6 @@ const plans = [
             "API access",
         ],
         popular: false,
-        gradient: "from-emerald-500 to-teal-600",
     },
 ];
 
@@ -72,8 +69,8 @@ const cardUp = {
 
 export default function Pricing() {
     return (
-        <section id="pricing" className="relative py-24 lg:py-32 bg-gray-50/50">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(99,102,241,0.06),transparent)]" />
+        <section id="pricing" className="relative py-24 lg:py-32" style={{ backgroundColor: "#f5f5f7" }}>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(18,20,24,0.08),transparent)]" />
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -84,13 +81,13 @@ export default function Pricing() {
                     transition={{ duration: 0.6 }}
                     className="text-center max-w-2xl mx-auto mb-16"
                 >
-                    <span className="inline-block text-xs font-semibold text-primary-600 tracking-widest uppercase mb-4">
+                    <span className="inline-block text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#121418" }}>
                         Pricing
                     </span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-                        Simple, <span className="gradient-text">Transparent</span> Pricing
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
+                        Simple, <span style={{ color: "#004182" }}>Transparent</span> Pricing
                     </h2>
-                    <p className="mt-4 text-lg text-gray-500 leading-relaxed">
+                    <p className="mt-4 text-lg text-gray-600 leading-relaxed">
                         Start free with 4 generations. Upgrade when you&apos;re ready to grow.
                     </p>
                 </motion.div>
@@ -109,12 +106,13 @@ export default function Pricing() {
                             variants={cardUp}
                             whileHover={{ y: -6, transition: { duration: 0.25 } }}
                             className={`relative rounded-2xl p-8 transition-all duration-300 ${plan.popular
-                                ? "bg-gradient-to-br from-primary-600 via-primary-500 to-purple-600 text-white shadow-2xl shadow-primary-500/25 scale-[1.02] lg:scale-105 z-10"
-                                : "bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary-100"
+                                ? "text-white shadow-2xl scale-[1.02] lg:scale-105 z-10"
+                                : "bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-gray-300"
                                 }`}
+                            style={plan.popular ? { background: "linear-gradient(to bottom right, #121418, #1a1f26, #252b35)" } : undefined}
                         >
                             {plan.popular && (
-                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-primary-600 text-xs font-bold px-4 py-1 rounded-full shadow-lg">
+                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-xs font-bold px-4 py-1 rounded-full shadow-lg" style={{ color: "#121418" }}>
                                     Most Popular
                                 </div>
                             )}
@@ -127,7 +125,7 @@ export default function Pricing() {
                                     {plan.name}
                                 </h3>
                                 <p
-                                    className={`text-sm mt-1 ${plan.popular ? "text-white/70" : "text-gray-500"
+                                    className={`text-sm mt-1 ${plan.popular ? "text-white/80" : "text-gray-500"
                                         }`}
                                 >
                                     {plan.description}
@@ -142,14 +140,14 @@ export default function Pricing() {
                                     {plan.price}
                                 </span>
                                 <span
-                                    className={`text-sm ${plan.popular ? "text-white/70" : "text-gray-500"
+                                    className={`text-sm ${plan.popular ? "text-white/80" : "text-gray-500"
                                         }`}
                                 >
                                     {plan.period}
                                 </span>
                                 <p
-                                    className={`text-sm font-semibold mt-1 ${plan.popular ? "text-white/90" : "text-primary-600"
-                                        }`}
+                                    className={`text-sm font-semibold mt-1 ${plan.popular ? "text-white/90" : ""}`}
+                                    style={!plan.popular ? { color: "#121418" } : undefined}
                                 >
                                     {plan.credits}
                                 </p>
@@ -163,7 +161,7 @@ export default function Pricing() {
                                             height="16"
                                             viewBox="0 0 24 24"
                                             fill="none"
-                                            stroke={plan.popular ? "white" : "#6366f1"}
+                                            stroke={plan.popular ? "white" : "#121418"}
                                             strokeWidth="2.5"
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
@@ -177,14 +175,16 @@ export default function Pricing() {
                                 ))}
                             </ul>
 
-                            <button
-                                className={`w-full py-3 px-6 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${plan.popular
-                                    ? "bg-white text-primary-600 hover:shadow-lg hover:-translate-y-0.5"
-                                    : "bg-gray-900 text-white hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5"
+                            <a
+                                href="https://app.postflux.tech/signup"
+                                className={`w-full py-3 px-6 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer text-center block ${plan.popular
+                                    ? "bg-white hover:shadow-lg hover:-translate-y-0.5"
+                                    : "text-white hover:shadow-lg hover:-translate-y-0.5"
                                     }`}
+                                style={plan.popular ? { color: "#121418" } : { backgroundColor: "#121418" }}
                             >
                                 Get Started
-                            </button>
+                            </a>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -199,26 +199,30 @@ export default function Pricing() {
                 >
                     <h3 className="text-center text-lg font-bold text-gray-900 mb-6">
                         Need more credits?{" "}
-                        <span className="gradient-text">Top up anytime</span>
+                        <span style={{ color: "#121418" }}>Top up anytime</span>
                     </h3>
                     <div className="grid sm:grid-cols-2 gap-4">
                         {topups.map((topup, i) => (
                             <motion.div
                                 key={i}
                                 whileHover={{ y: -4, transition: { duration: 0.25 } }}
-                                className="flex items-center justify-between bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary-100 transition-all duration-300"
+                                className="flex items-center justify-between bg-white rounded-xl p-5 border border-gray-200 shadow-sm hover:shadow-lg hover:border-gray-300 transition-all duration-300"
                             >
                                 <div>
                                     <p className="font-bold text-gray-900">{topup.credits}</p>
-                                    <p className="text-xs text-gray-400">{topup.desc}</p>
+                                    <p className="text-xs text-gray-500">{topup.desc}</p>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <span className="text-xl font-extrabold text-gray-900">
                                         {topup.price}
                                     </span>
-                                    <button className="text-xs font-semibold text-primary-600 bg-primary-50 hover:bg-primary-100 px-4 py-2 rounded-full transition-colors cursor-pointer">
+                                    <a
+                                        href="https://app.postflux.tech/signup"
+                                        className="text-xs font-semibold text-white px-4 py-2 rounded-full transition-colors cursor-pointer hover:opacity-90"
+                                        style={{ backgroundColor: "#121418" }}
+                                    >
                                         Buy
-                                    </button>
+                                    </a>
                                 </div>
                             </motion.div>
                         ))}

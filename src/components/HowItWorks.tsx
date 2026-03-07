@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { ArrowDown, ArrowRight } from "lucide-react";
 
 const steps = [
     {
@@ -8,14 +10,7 @@ const steps = [
         title: "Record Your Voice",
         description:
             "Simply speak your thoughts, experiences, or insights. Our AI captures every nuance of your message.",
-        icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                <line x1="12" y1="19" x2="12" y2="23" />
-                <line x1="8" y1="23" x2="16" y2="23" />
-            </svg>
-        ),
+        image: "/step1.png",
         color: "from-blue-500 to-indigo-600",
         bgColor: "bg-blue-50",
     },
@@ -24,11 +19,7 @@ const steps = [
         title: "AI Understands Your Tone",
         description:
             "PostFlux analyzes your speaking style, intent, and expertise to craft the perfect LinkedIn narrative.",
-        icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-            </svg>
-        ),
+        image: "/step2.png",
         color: "from-violet-500 to-purple-600",
         bgColor: "bg-violet-50",
     },
@@ -37,11 +28,7 @@ const steps = [
         title: "Get LinkedIn-Ready Content",
         description:
             "Receive polished, engaging posts optimized for LinkedIn's algorithm. Review, tweak, and publish.",
-        icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-            </svg>
-        ),
+        image: "/step3.png",
         color: "from-emerald-500 to-teal-600",
         bgColor: "bg-emerald-50",
     },
@@ -73,17 +60,6 @@ export default function HowItWorks() {
 
                 {/* Steps */}
                 <div className="relative">
-                    {/* Connector line — desktop */}
-                    <div className="hidden lg:block absolute top-24 left-[16.67%] right-[16.67%] h-0.5">
-                        <motion.div
-                            initial={{ scaleX: 0 }}
-                            whileInView={{ scaleX: 1 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
-                            className="h-full bg-gradient-to-r from-blue-300 via-violet-300 to-emerald-300 origin-left rounded-full"
-                        />
-                    </div>
-
                     <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
                         {steps.map((step, i) => (
                             <motion.div
@@ -94,29 +70,50 @@ export default function HowItWorks() {
                                 transition={{ duration: 0.6, delay: i * 0.2 }}
                                 className="relative text-center"
                             >
-                                {/* Step icon */}
+                                {/* Step image */}
                                 <div className="relative inline-flex mb-8">
-                                    <div className={`w-20 h-20 rounded-2xl ${step.bgColor} flex items-center justify-center relative z-10`}>
-                                        <div className={`bg-gradient-to-br ${step.color}`} style={{ WebkitBackgroundClip: "text" }}>
-                                            {step.icon}
-                                        </div>
+                                    <div
+                                        className={`group w-35 h-35 rounded-2xl ${step.bgColor} flex items-center justify-center relative z-10 overflow-hidden border border-gray-100`}
+                                    >
+                                        <Image
+                                            src={step.image}
+                                            alt={`${step.title} illustration`}
+                                            width={96}
+                                            height={96}
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        />
                                     </div>
                                     <div className={`absolute -top-2 -right-2 w-7 h-7 rounded-lg bg-gradient-to-br ${step.color} text-white text-xs font-bold flex items-center justify-center shadow-lg z-20`}>
                                         {step.number}
                                     </div>
                                 </div>
 
-                                {/* Mobile connector */}
+                                {/* Mobile directional arrow */}
                                 {i < 2 && (
                                     <div className="lg:hidden flex justify-center my-2">
-                                        <motion.div
-                                            initial={{ scaleY: 0 }}
-                                            whileInView={{ scaleY: 1 }}
+                                        <motion.span
+                                            initial={{ opacity: 0, y: -4 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true }}
-                                            transition={{ duration: 0.5, delay: 0.3 }}
-                                            className="w-0.5 h-8 bg-gradient-to-b from-gray-200 to-gray-300 origin-top"
-                                        />
+                                            transition={{ duration: 0.4, delay: 0.2 }}
+                                            className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-gray-100 text-gray-500"
+                                        >
+                                            <ArrowDown size={18} />
+                                        </motion.span>
                                     </div>
+                                )}
+
+                                {/* Desktop directional arrows */}
+                                {i < 2 && (
+                                    <motion.span
+                                        initial={{ opacity: 0, x: -8 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                                        className="hidden lg:inline-flex absolute top-10 -right-8 xl:-right-10 items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-500 shadow-sm"
+                                    >
+                                        <ArrowRight size={18} />
+                                    </motion.span>
                                 )}
 
                                 <h3 className="text-xl font-bold text-gray-900 mb-3">

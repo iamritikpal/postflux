@@ -1,4 +1,5 @@
 import { CTASection as Hero } from "@/components/ui/hero-dithering-card";
+import WhatWeDo from "@/components/WhatWeDo";
 import { HeroScrollDemo } from "@/components/HeroScrollDemo";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
@@ -14,9 +15,10 @@ export default function Home() {
       <PostFluxNavbar />
       <main>
         <Hero />
-        <HeroScrollDemo />
-        <Features />
         <HowItWorks />
+        <HeroScrollDemo />
+        <WhatWeDo />
+        <Features />
         <Pricing />
         <Testimonials />
         <CTA />

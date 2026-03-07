@@ -71,13 +71,6 @@
     background: linear-gradient(135deg, #6366f1, #8b5cf6);
   }
 
-  .glass-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
   .shine-effect {
     position: relative;
     overflow: hidden;
@@ -102,18 +95,6 @@
     transform: rotate(30deg) translateX(100%);
   }
 
-  .hero-glow {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle,
-        rgba(99, 102, 241, 0.15) 0%,
-        rgba(139, 92, 246, 0.08) 40%,
-        transparent 70%);
-    filter: blur(40px);
-    pointer-events: none;
-  }
 }
 
 @keyframes morph-0 {
@@ -212,18 +193,7 @@
   }
 }
 
-.starting-hero-section {
-  background-color: white;
-  padding-top: 6%;
-}
-
 .hero-scroll-demo {
   padding-top: 0;
   margin-top: -10%;
-}
-
-@media (max-width: 768px) {
-  .starting-hero-section>div>div {
-    min-height: 700px;
-  }
 }

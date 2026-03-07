@@ -1,89 +1,29 @@
 "use client";
 
-import { Mic, Sparkles, UserCheck, CreditCard, Wand2 } from "lucide-react";
-import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
-
-const featuresData = [
-    {
-        id: 1,
-        title: "Voice Capture",
-        date: "Step 1",
-        content:
-            "Speak naturally and record your raw thoughts, ideas, and expertise. No typing needed — just talk like you would to a colleague.",
-        category: "Input",
-        icon: Mic,
-        relatedIds: [2],
-        status: "completed" as const,
-        energy: 100,
-    },
-    {
-        id: 2,
-        title: "AI Structuring",
-        date: "Step 2",
-        content:
-            "PostFlux's AI engine analyzes your speech patterns, extracts key insights, and structures them into authoritative LinkedIn content.",
-        category: "Processing",
-        icon: Wand2,
-        relatedIds: [1, 3],
-        status: "completed" as const,
-        energy: 90,
-    },
-    {
-        id: 3,
-        title: "Tone Matching",
-        date: "Step 3",
-        content:
-            "Your unique voice and writing style are preserved. Every post sounds authentically you — never robotic or generic AI output.",
-        category: "Personalization",
-        icon: UserCheck,
-        relatedIds: [2, 4],
-        status: "in-progress" as const,
-        energy: 75,
-    },
-    {
-        id: 4,
-        title: "Smart Polish",
-        date: "Step 4",
-        content:
-            "AI-powered formatting, hashtag suggestions, and engagement optimization make every post ready to go viral on LinkedIn.",
-        category: "Enhancement",
-        icon: Sparkles,
-        relatedIds: [3, 5],
-        status: "in-progress" as const,
-        energy: 60,
-    },
-    {
-        id: 5,
-        title: "Flexible Credits",
-        date: "Step 5",
-        content:
-            "Pay as you grow with our credit-based system. Start with free credits and scale your content production when you're ready.",
-        category: "Billing",
-        icon: CreditCard,
-        relatedIds: [4],
-        status: "pending" as const,
-        energy: 40,
-    },
-];
+import { BentoGridDemo } from "@/components/ui/demo";
 
 export default function Features() {
     return (
-        <section id="features" className="relative">
-            {/* Section header overlaid on the dark background */}
-            <div className="absolute top-0 left-0 right-0 z-10 pt-16 pb-8 text-center pointer-events-none features-section-css">
-                <span className="inline-block text-xs font-semibold text-primary-300 tracking-widest uppercase mb-4">
-                    Features
-                </span>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-                    The Power of{" "}
-                    <span className="gradient-text">Speaking Your Story</span>
-                </h2>
-                <p className="mt-4 text-lg text-white/60 leading-relaxed max-w-2xl mx-auto px-4">
-                    Click any node to explore how PostFlux transforms your voice into
-                    LinkedIn authority — one step at a time.
-                </p>
+        <section id="features" className="relative py-24 lg:py-28 bg-gray-950">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_50%_at_50%_0%,rgba(99,102,241,0.18),transparent)]" />
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center max-w-3xl mx-auto mb-12">
+                    <span className="inline-block text-xs font-semibold text-primary-300 tracking-widest uppercase mb-4">
+                        Features
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+                        PostFlux, Built for{" "}
+                        <span className="gradient-text">Creator Consistency</span>
+                    </h2>
+                    <p className="mt-5 text-lg text-white/70 leading-relaxed">
+                        A modern voice-to-content workflow: capture ideas, structure with AI,
+                        match your style, and publish high-impact LinkedIn posts faster.
+                    </p>
+                </div>
+
+                <BentoGridDemo />
             </div>
-            <RadialOrbitalTimeline timelineData={featuresData} />
         </section>
     );
 }

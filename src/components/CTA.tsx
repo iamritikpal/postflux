@@ -5,24 +5,18 @@ import Link from "next/link";
 
 export default function CTA() {
     return (
-        <section id="cta" className="relative py-24 lg:py-32 overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-500 to-purple-600" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_120%,rgba(255,255,255,0.1),transparent)]" />
+        <section id="cta" className="relative py-24 lg:py-32 overflow-hidden" style={{ backgroundColor: "#121418" }}>
+            {/* Subtle radial glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_120%,rgba(255,255,255,0.03),transparent)]" />
 
-            {/* Grid pattern */}
+            {/* Dot grid */}
             <div
-                className="absolute inset-0 opacity-[0.06]"
+                className="absolute inset-0 opacity-[0.04]"
                 style={{
-                    backgroundImage:
-                        "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-                    backgroundSize: "40px 40px",
+                    backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+                    backgroundSize: "32px 32px",
                 }}
             />
-
-            {/* Glow orbs */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl" />
 
             <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <motion.div
@@ -31,7 +25,7 @@ export default function CTA() {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6 }}
                 >
-                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-semibold mb-6">
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-sm border border-white/10 text-white/80 text-xs font-semibold mb-6">
                         <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
                         Limited Time Offer
                     </span>
@@ -45,9 +39,7 @@ export default function CTA() {
                     className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight"
                 >
                     Get Started with{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200">
-                        PostFlux
-                    </span>
+                    <span className="text-white">PostFlux</span>
                 </motion.h2>
 
                 <motion.p
@@ -55,7 +47,7 @@ export default function CTA() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mt-6 text-lg sm:text-xl text-white/70 max-w-xl mx-auto leading-relaxed"
+                    className="mt-6 text-lg sm:text-xl text-white/60 max-w-xl mx-auto leading-relaxed"
                 >
                     Try 4 free generations — no credit card required. Experience the power
                     of voice-to-LinkedIn content today.
@@ -68,9 +60,10 @@ export default function CTA() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
                 >
-                    <Link
-                        href="#"
-                        className="shine-effect inline-flex items-center justify-center gap-2 text-base font-semibold text-primary-600 bg-white px-8 py-4 rounded-full hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 hover:-translate-y-0.5"
+                    <a
+                        href="https://app.postflux.tech/signup"
+                        className="shine-effect inline-flex items-center justify-center gap-2 text-base font-semibold bg-white px-8 py-4 rounded-full hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-black/20"
+                        style={{ color: "#121418" }}
                     >
                         Try 4 Free Generations
                         <svg
@@ -86,10 +79,10 @@ export default function CTA() {
                             <line x1="5" y1="12" x2="19" y2="12" />
                             <polyline points="12 5 19 12 12 19" />
                         </svg>
-                    </Link>
+                    </a>
                     <Link
                         href="#pricing"
-                        className="inline-flex items-center justify-center gap-2 text-base font-semibold text-white bg-white/10 backdrop-blur-sm border border-white/20 px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-300 hover:-translate-y-0.5"
+                        className="inline-flex items-center justify-center gap-2 text-base font-semibold text-white bg-white/10 backdrop-blur-sm border border-white/15 px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-300 hover:-translate-y-0.5"
                     >
                         View Plans
                     </Link>
