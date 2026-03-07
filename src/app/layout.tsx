@@ -14,8 +14,6 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-import LoadingScreen from "@/components/LoadingScreen";
-
 const siteUrl = "https://postflux.tech";
 
 export const metadata: Metadata = {
@@ -127,9 +125,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}
       >
-        <LoadingScreen>
-          {children}
-        </LoadingScreen>
+        {children}
       </body>
     </html>
   );
