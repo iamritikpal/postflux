@@ -223,8 +223,8 @@
     align-items: center;
     gap: 0.625rem;
     background: #fff;
-    color: #000;
-    font-size: 0.875rem;
+    color: #333;
+    font-size: 0.975rem;
     font-weight: 700;
     padding: 0.875rem 1.75rem;
     border-radius: 9999px;
@@ -522,9 +522,17 @@
     }
 
     .bannerWrap {
-        width: min(96vw, 560px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 15px;
     }
 
+    .bannerImg {
+        max-width: none;
+        width: 145% !important;
+    }
     .statCard {
         padding: 0.55rem 0.75rem;
         border-radius: 0.85rem;
@@ -533,11 +541,13 @@
     .statCardTop {
         left: 2%;
         top: -0.5rem;
+        display: none;
     }
 
     .statCardBottom {
         right: 2%;
         bottom: -0.4rem;
+        display: none;
     }
 
     .statValue {

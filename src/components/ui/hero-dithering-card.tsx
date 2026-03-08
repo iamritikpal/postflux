@@ -82,7 +82,7 @@ export function CTASection() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className={s.subHeadline}
                         >
-                            Turn Your Voice Into LinkedIn Authority — Up To 10× Faster.
+                            Turn Your Voice Into LinkedIn Authority <br />Up To 10× Faster.
                         </motion.p>
 
                         {/* Description */}
