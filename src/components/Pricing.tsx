@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 const plans = [
     {
         name: "Starter",
-        price: "₹499",
-        period: "/mo",
+        originalPrice: 19,
+        discountedPrice: 9,
+        period: "/month",
         credits: "100 Credits",
         description: "Perfect for getting started with AI content creation.",
         features: [
@@ -19,8 +20,9 @@ const plans = [
     },
     {
         name: "Pro",
-        price: "₹999",
-        period: "/mo",
+        originalPrice: 49,
+        discountedPrice: 24,
+        period: "/month",
         credits: "300 Credits",
         description: "For professionals serious about LinkedIn growth.",
         features: [
@@ -35,8 +37,9 @@ const plans = [
     },
     {
         name: "Ultra",
-        price: "₹1999",
-        period: "/mo",
+        originalPrice: 129,
+        discountedPrice: 59,
+        period: "/month",
         credits: "1000 Credits",
         description: "For teams and power users who create at scale.",
         features: [
@@ -53,8 +56,8 @@ const plans = [
 ];
 
 const topups = [
-    { credits: "50 Credits", price: "₹199", desc: "Quick boost" },
-    { credits: "150 Credits", price: "₹499", desc: "Best value top-up" },
+    { credits: "50 Credits", price: "$9", desc: "Quick boost" },
+    { credits: "150 Credits", price: "$19", desc: "Best value top-up" },
 ];
 
 const container = {
@@ -133,23 +136,35 @@ export default function Pricing() {
                             </div>
 
                             <div className="mb-6">
-                                <span
-                                    className={`text-4xl font-extrabold ${plan.popular ? "text-white" : "text-gray-900"
-                                        }`}
-                                >
-                                    {plan.price}
-                                </span>
-                                <span
-                                    className={`text-sm ${plan.popular ? "text-white/80" : "text-gray-500"
-                                        }`}
-                                >
-                                    {plan.period}
-                                </span>
+                                <div className="mb-1">
+                                    <span
+                                        className={`text-sm line-through ${plan.popular ? "text-white/60" : "text-gray-500"}`}
+                                    >
+                                        ${plan.originalPrice}
+                                    </span>
+                                </div>
+                                <div>
+                                    <span
+                                        className={`text-4xl font-extrabold ${plan.popular ? "text-white" : "text-gray-900"
+                                            }`}
+                                    >
+                                        ${plan.discountedPrice}
+                                    </span>
+                                    <span
+                                        className={`text-sm ${plan.popular ? "text-white/80" : "text-gray-500"
+                                            }`}
+                                    >
+                                        {" "}{plan.period}
+                                    </span>
+                                </div>
                                 <p
                                     className={`text-sm font-semibold mt-1 ${plan.popular ? "text-white/90" : ""}`}
                                     style={!plan.popular ? { color: "#121418" } : undefined}
                                 >
                                     {plan.credits}
+                                </p>
+                                <p className={`text-xs mt-1 ${plan.popular ? "text-white/80" : "text-gray-600"}`}>
+                                    🔥 Launch Offer — Limited Time
                                 </p>
                             </div>
 

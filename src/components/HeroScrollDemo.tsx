@@ -17,7 +17,7 @@ export function HeroScrollDemo() {
                 }
             >
                 <img
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+                    src="/hero.png"
                     alt="PostFlux dashboard preview"
                     className="mx-auto rounded-2xl object-cover h-full w-full object-left-top"
                     draggable={false}
