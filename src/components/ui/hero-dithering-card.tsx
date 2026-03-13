@@ -168,7 +168,7 @@ export function CTASection() {
                         {/* Banner */}
                         <div className={s.bannerWrap}>
                             <Image
-                                src="/banner.svg"
+                                src="/banner.png"
                                 alt="PostFlux – voice to LinkedIn content illustration"
                                 width={960}
                                 height={960}

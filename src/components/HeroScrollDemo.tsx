@@ -16,10 +16,18 @@ export function HeroScrollDemo() {
                     </>
                 }
             >
+                {/* Desktop / tablet image */}
                 <img
                     src="/hero.png"
                     alt="PostFlux dashboard preview"
-                    className="mx-auto rounded-2xl object-cover h-full w-full object-left-top"
+                    className="hidden md:block mx-auto rounded-2xl object-cover h-full w-full object-left-top"
+                    draggable={false}
+                />
+                {/* Mobile image */}
+                <img
+                    src="/hero2.png"
+                    alt="PostFlux dashboard preview mobile"
+                    className="block md:hidden mx-auto rounded-2xl object-cover h-full w-full object-left-top"
                     draggable={false}
                 />
             </ContainerScroll>
